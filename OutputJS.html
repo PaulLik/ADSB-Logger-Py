@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="win-1251">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+	body {
+		margin: 0 auto;
+		width: 1418px;
+		overflow-x: scroll;
+		background-color: #fff;
+		font-family: Tahoma;
+		font-size: 10pt;
+		color: #000;
+		}
+			
+	sub {
+		font-size: 6pt;
+		}
+	
+	table {
+		width: 100%;
+		min-width: 1418px;
+		background-color: #fff;
+		border-collapse: collapse;
+		}
+		
+	tr {
+		padding: 0;
+		}
+		
+	th {
+		padding: 5px;
+		height: 30px;
+		border-right: 1px solid #fff;
+		border-bottom: 1px solid #fff;
+		background-color: #f2f2f2;
+		font-weight: normal;
+		}
+	
+	td {
+		padding: 5px;
+		height: 30px;
+		border-bottom: 1px solid #e2e2e2;
+		border-right: 1px solid #fff;
+		}
+	
+	#outputHeader {
+		position: fixed;
+		overflow: scroll-x;
+		margin: 0 auto;
+		padding: 0;
+		width: 1418px;
+		}
+	
+	#outputTable {
+		position: absolute;
+		margin: 0 auto;
+		top: 45px;
+		width: 1418px;
+		//height: 100%;
+		z-index: -1;
+		}
+	
+	.td-hidden {
+		display: none;
+		}
+		
+	.td-modes {
+		padding-left: 37px;
+		width: 45px;
+		border-bottom: 1px solid #fff;
+		background-color: #f2f2f2;
+		background-position: 2px center;
+		background-repeat: no-repeat;
+		}
+	
+	.td-airframe {
+		padding-left: 95px;
+		width: 270px;
+		overflow-x: hidden;
+		background-position: 0 center;
+		background-repeat: no-repeat;
+		}
+	
+	.td-regno {
+		width: 75px;
+		}
+	
+	.td-flight {
+		width: 145px;
+		}
+	
+	.td-altitude {
+		width: 80px;
+		text-align: right;
+		}
+	
+	.td-heading {
+		width: 55px;
+		text-align: right;
+		background-position: 2px center;
+		background-repeat: no-repeat;
+		}
+	
+	.td-speed {
+		width: 65px;
+		text-align: right;
+		}
+	
+	.td-v-rate {
+		width: 65px;
+		text-align: right;
+		background-position: 2px center;
+		background-repeat: no-repeat;
+		}
+	
+	.td-squawk {
+		width: 55px;
+		text-align: right;
+		}
+	
+	.td-coords {
+		width: 70px;
+		text-align: right;
+		background-position: 2px center;
+		background-repeat: no-repeat;
+		}
+	
+	.td-contact {
+		width: 70px;
+		text-align: right;
+		}
+	
+	.td-updated {
+		padding-left: 17px;
+		width: 50px;
+		text-align: right;
+		background-position: 2px center;
+		background-repeat: no-repeat;
+		}
+	
+</style>
+</head>
+
+<body>
+	<div id="outputHeader">
+		<table>
+			<tr>
+				<th width="77">Mode S</th>
+				<th width="360">Воздушное судно</th>
+				<th width="75">Рег. №</th>
+				<th width="145">Позывной, рейс</th>
+				<th width="80">Высота</th>
+				<th width="55">Курс</th>
+				<th width="65">Скорость</th>
+				<th width="65">V<sub>ВЕРТ</sub></th>
+				<th width="55">SQUAWK</th>
+				<th width="70">Удаление,<br>азимут</th>
+				<th width="70">Контакт</th>
+				<th width="80">Обновлено</th>
+			</tr>
+		</table>
+	</div>
+	<div id="outputTable">
+		<table id="logTable">
+			<tr>
+				<td class="td-modes" background="l:\ADSB Logger\Flags\QAT.png">42C68B</td>
+				<td class="td-airframe" background="l:\ADSB Logger\Media\Airlines\1018.jpg"><span class="td-id">12345</span>Global Express XRS (BD-700-1A10)<br>Aircalin - Air Caledonie International (ACI/ SB)</td>
+				<td class="td-regno">HP-9907CMP</td>
+				<td class="td-flight">HP-9907CMP<br><abbr title="Россия, Москва, Шереметьево">SVO</abbr> &#8680; FRA &#8680; LHR</td>
+				<td class="td-altitude">36 000</td>
+				<td class="td-heading" background="l:\Coding\ADSB Logger\5.1\Media\Track\260.png">259</td>
+				<td class="td-speed">505</td>
+				<td class="td-v-rate">3048</td>
+				<td class="td-squawk">2458</td>
+				<td class="td-coords">350<br>265</td>
+				<td class="td-contact">10.11.2021<br>23:56:38</td>
+				<td class="td-updated" background="l:\Coding\ADSB Logger\4.0\AfInSight.jpg">11.11.2021<br>00:35:47</td>
+			</tr>
+		</table>
+		<p>
+			<button onClick="addAircraft()">Add Aircraft</button>
+		</p>
+	</div>
+	
+
+<script>
+	function addAircraft(){
+		const table = document.getElementById("logTable");
+		const row = table.insertRow(0);
+		
+		const afModeS = row.insertCell(0);
+		afModeS.className = "td-modes";
+		afModeS.innerHTML = "151DDC";
+		
+		const afAirframe = row.insertCell(1);
+		afAirframe.className = "td-airframe";
+		const afId = document.createElement("span");
+		afId.className = "td-id";
+		afId.innerHTML = "1848";
+		const afData = document.createElement("span")
+		afData.innerHTML = "Airbus A320-214 (WL) (A320)<br>Аэрофлот (AFL/ SU)";
+		afAirframe.style.backgroundImage = "url('file:///x:/Media/Airlines/38.jpg')";
+		afAirframe.appendChild(afId);
+		afAirframe.appendChild(afData)
+		
+		const afRegNo = row.insertCell(2);
+		afRegNo.className = "td-regno";
+		afRegNo.innerHTML = "RA-73180";
+		
+		const afFlight = row.insertCell(3);
+		afFlight.className = "td-flight";
+		afFlight.innerHTML = "AFL1790 / SU1790<br><abbr title='Россия, Москва, Шереметьево'>SVO</abbr> &#8680; FRA &#8680; LHR";
+		
+		let alt = Math.floor((Math.random() * 45000) + 1);
+		const afAltitude = row.insertCell(4);
+		afAltitude.className = "td-altitude";
+		afAltitude.innerHTML = alt.toLocaleString() + " фт.<br>" + Math.round(alt / 3.048).toLocaleString() + " м&nbsp;&nbsp;&nbsp;";
+		
+		let head = Math.floor((Math.random() * 360) + 1);
+		const afHeading = row.insertCell(5);
+		afHeading.className = "td-heading";
+		let headBg = "url('file:///x:/Media/Track/" + (Math.round(head / 10) * 10).toString().padStart(3, "0") + ".png')";
+		afHeading.innerHTML = head.toString().padStart(3, "0") + "&#176;";
+		afHeading.style.backgroundImage = headBg;
+		
+		let speed = 388;
+		const afSpeed = row.insertCell(6);
+		afSpeed.className = "td-speed";
+		speed = speed.toString() + " уз.&nbsp;&nbsp;<br>" + Math.round(speed * 1.853) + " км/ч";
+		afSpeed.innerHTML = speed;
+		
+		let vrate = Math.floor((Math.random() * 8192) - 4096);
+		const afVrate = row.insertCell(7);
+		afVrate.className = "td-v-rate";
+		let vrateBg;
+		if (vrate > 64) {
+			vrateBg = "url('file:///x:/Media/afClimb.png')";
+			} else if(vrate < -64) {
+			vrateBg = "url('file:///x:/Media/afDescent.png')";
+			} else {
+			vrateBg = "url('file:///x:/Media/afInFlight.png')";
+			}
+		afVrate.innerHTML = vrate.toLocaleString() + "<br>" + Math.round(vrate / 3.048 / 60).toLocaleString() + " м/с";
+		afVrate.style.backgroundImage = vrateBg;
+		
+		let squawk = Math.floor((Math.random() * 1200) + 1);
+		const afSquawk = row.insertCell(8);
+		afSquawk.className = "td-squawk";
+		afSquawk.innerHTML = squawk.toString();
+		if (squawk == 7500 || squawk == 7600 || squawk == 7700){
+			afSquawk.style.color = "#ff0000";
+			const alarm = new Audio("Alarm.wav");
+			alarm.play();
+			}
+		
+		const afCoords = row.insertCell(9);
+		afCoords.className = "td-coords";
+		afCoords.innerHTML = "Coords";
+		
+		let contact = new Date().toLocaleString();
+		const afContact = row.insertCell(10);
+		afContact.className = "td-contact";
+		contact = contact.replace(", ", "<br>");
+		afContact.innerHTML = contact;
+		
+		const afUpdated = row.insertCell(11);
+		afUpdated.className = "td-updated";
+		afUpdated.innerHTML = "&nbsp;"
+		}
+</script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="win-1251">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+	body {
+		margin: 0 auto;
+		width: 1418px;
+		overflow-x: scroll;
+		background-color: #fff;
+		font-family: Tahoma;
+		font-size: 10pt;
+		color: #000;
+		}
+			
+	sub {
+		font-size: 6pt;
+		}
+	
+	table {
+		width: 100%;
+		min-width: 1418px;
+		background-color: #fff;
+		border-collapse: collapse;
+		}
+		
+	tr {
+		padding: 0;
+		}
+		
+	th {
+		padding: 5px;
+		height: 30px;
+		border-right: 1px solid #fff;
+		border-bottom: 1px solid #fff;
+		background-color: #f2f2f2;
+		font-weight: normal;
+		}
+	
+	td {
+		padding: 5px;
+		height: 30px;
+		border-bottom: 1px solid #e2e2e2;
+		border-right: 1px solid #fff;
+		}
+	
+	#outputHeader {
+		position: fixed;
+		overflow: scroll-x;
+		margin: 0 auto;
+		padding: 0;
+		width: 1418px;
+		}
+	
+	#outputTable {
+		position: absolute;
+		margin: 0 auto;
+		top: 45px;
+		width: 1418px;
+		//height: 100%;
+		z-index: -1;
+		}
+	
+	.td-hidden {
+		display: none;
+		}
+		
+	.td-modes {
+		padding-left: 37px;
+		width: 45px;
+		border-bottom: 1px solid #fff;
+		background-color: #f2f2f2;
+		background-position: 2px center;
+		background-repeat: no-repeat;
+		}
+	
+	.td-airframe {
+		padding-left: 95px;
+		width: 270px;
+    overflow-x: hidden;
+		background-position: 0 center;
+		background-repeat: no-repeat;
+		}
+	
+	.td-regno {
+		width: 75px;
+		}
+	
+	.td-flight {
+		width: 145px;
+		}
+	
+	.td-altitude {
+		width: 80px;
+		text-align: right;
+		}
+	
+	.td-heading {
+		width: 55px;
+		text-align: right;
+		background-position: 2px center;
+		background-repeat: no-repeat;
+		}
+	
+	.td-speed {
+		width: 75px;
+		text-align: right;
+		}
+	
+	.td-v-rate {
+		width: 45px;
+		text-align: right;
+		}
+	
+	.td-squawk {
+		width: 65px;
+		text-align: right;
+		}
+	
+	.td-coords {
+		width: 70px;
+		text-align: right;
+		background-position: 2px center;
+		background-repeat: no-repeat;
+		}
+	
+	.td-contact {
+		width: 70px;
+		text-align: right;
+		}
+	
+	.td-updated {
+		padding-left: 17px;
+		width: 50px;
+		text-align: right;
+		background-position: 2px center;
+		background-repeat: no-repeat;
+		}
+	
+</style>
+</head>
+
+<body>
+	<div id="outputHeader">
+		<table>
+			<tr>
+				<th width="77">Mode S</th>
+				<th width="360">Воздушное судно</th>
+				<th width="75">Рег. №</th>
+				<th width="145">Рейс</th>
+				<th width="80">Высота</th>
+				<th width="55">Курс</th>
+				<th width="75">Скорость</th>
+				<th width="45">V<sub>ВЕРТ</sub></th>
+				<th width="65">SQUAWK</th>
+				<th width="70">Удаление,<br>азимут</th>
+				<th width="70">Контакт</th>
+				<th width="80">Обновлено</th>
+			</tr>
+		</table>
+	</div>
+	<div id="outputTable">
+		<table id="logTable">
+			<!-- <tr>
+				<td class="td-modes" background="l:\ADSB Logger\Flags\QAT.png">42C68B</td>
+				<td class="td-airframe" background="l:\ADSB Logger\Media\Airlines\1018.jpg"><span class="td-id">12345</span>Global Express XRS (BD-700-1A10)<br>Aircalin - Air Caledonie International (ACI/ SB)</td>
+				<td class="td-regno">HP-9907CMP</td>
+				<td class="td-flight">HP-9907CMP<br><abbr title="Россия, Москва, Шереметьево">SVO<abbr> &#8680; FRA &#8680; LHR</td>
+				<td class="td-altitude">36 000</td>
+				<td class="td-heading" background="l:\Coding\ADSB Logger\5.1\Media\Track\260.png">259</td>
+				<td class="td-speed">505</td>
+				<td class="td-v-rate">3048</td>
+				<td class="td-squawk">2458</td>
+				<td class="td-coords">350<br>265</td>
+				<td class="td-contact">10.11.2021<br>23:56:38</td>
+				<td class="td-updated" background="l:\Coding\ADSB Logger\4.0\AfInSight.jpg">11.11.2021<br>00:35:47</td>
+			</tr> -->
+		</table>
+	<div>
+</body>
+</html>

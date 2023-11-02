@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+	body {
+		margin: 0 auto;
+		width: 1418px;
+		overflow-x: scroll;
+		background-color: #fff;
+		font-family: Tahoma;
+		font-size: 10pt;
+		color: #000;
+		}
+	
+	table {
+		width: 100%;
+		min-width: 1418px;
+		background-color: #fff;
+		border-collapse: collapse;
+		}
+		
+	tr {
+		padding: 0;
+		}
+	
+	tr:nth-child(even) {
+		background-color: #f2f2f2;
+		}
+	
+	th {
+		padding: 5px;
+		height: 30px;
+		border-right: 1px solid #fff;
+		border-bottom: 1px solid #fff;
+		background-color: #f2f2f2;
+		font-weight: normal;
+		}
+	
+	td {
+		padding: 5px;
+		height: 30px;
+		border-bottom: 1px solid #e2e2e2;
+		border-right: 1px solid #fff;
+		}
+	#outputHeader {
+		position: fixed;
+		overflow: scroll-x;
+		margin: 0 auto;
+		padding: 0;
+		width: 1418px;
+		}
+	
+	#outputTable {
+		position: absolute;
+		margin: 0 auto;
+		top: 45px;
+		width: 1418px;
+		//height: 100%;
+		z-index: -1;
+		}	
+	
+	.nr {
+		width: 65px;
+		text-align: right;
+		}
+	
+	.modeS {
+		width: 80px;
+		}
+	
+	.afInfo{
+		width: 535px;
+		}
+	
+	.regNo (
+		width: 120px;
+		}
+	
+	.callsign {
+		width: 120px;
+		}
+	
+	.flightNr {
+		width: 170px;
+		}
+	
+	.contact {
+		width: 120px;
+		}
+	
+	.away {
+		width: 120px;
+		}
+	
+</style>
+</head>
+
+<body>
+	<div id="outputHeader">
+		<table>
+			<tr>
+				<th width="65">№</th>
+				<th width="80">Mode S</th>
+				<th with="535">Воздушное судно</th>
+				<th width="120">Рег. №</th>
+				<th width="120">Позывной</th>
+				<th width="170">Рейс</th>
+				<th width="120">Контакт</th>
+				<th width="120">Выход из зоны<br>наблюдения</th>
+			</tr>
+		</table>
+	</div>
+	
+	<div id="outputTable">
+		<table id="logTable">
+		</table>
+	</div>
+</body>
+</html>
