@@ -2,9 +2,9 @@ import socket
 from win32com.client import Dispatch
 import logger_db
 
-logger_db.loadAirports()
-for a in logger_db.airports:
-    print(a)
+#logger_db.loadAirports()
+#for a in logger_db.airports:
+    #print(a)
 
 server = "192.168.0.23"
 port = 30003
