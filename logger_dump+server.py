@@ -32,12 +32,13 @@ def JobStart():
         sck.listen()
         conn, addr = sck.accept()
         with conn:
+            f = open("logger_dump.txt", "r")
             while True:
-                f = open("logger_dump.txt", "r")
                 prevLine = f.readline()
                 for line in f:
                     time.sleep(setMessageTimeout(prevLine, line, 10))
-                    print(line)
+                    bLine = line.encode("utf-8")
+                    conn.send(bLine)
                     prevLine = line
 
     f.close()

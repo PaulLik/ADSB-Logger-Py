@@ -6,7 +6,7 @@ import logger_db
 #for a in logger_db.airports:
     #print(a)
 
-server = "192.168.0.23"
+server = "127.0.0.1"
 port = 30003
 
 with socket.socket(socket.AF_INET,socket.SOCK_STREAM) as s:
